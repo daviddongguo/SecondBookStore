@@ -13,6 +13,7 @@ namespace David.SecondBook.OnlineStore.WebApp
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            IocConfig.Register();
         }
     }
 }
