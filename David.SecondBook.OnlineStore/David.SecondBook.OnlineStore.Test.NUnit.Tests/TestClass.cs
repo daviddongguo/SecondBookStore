@@ -30,7 +30,7 @@ namespace David.SecondBook.OnlineStore.NUnit.Tests
         {
             // Arrange
             Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
-            mock.Setup(m => m.ProductsList).Returns
+            mock.Setup(m => m.ProductsList).Returns                                 // Setup object 
                 (
                     new Product[]
                     {
@@ -39,7 +39,7 @@ namespace David.SecondBook.OnlineStore.NUnit.Tests
                     new Product { Name = "Mock Running shoes", Price = 95 }
                      }
                 );
-            ProductController controller = new ProductController(mock.Object);
+            ProductController controller = new ProductController(mock.Object);      // Retrieve object
 
             // Act
             var result = (ViewResult)controller.List();
