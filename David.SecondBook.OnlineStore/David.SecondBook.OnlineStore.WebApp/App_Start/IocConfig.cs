@@ -1,16 +1,11 @@
-﻿using Autofac;
-using Autofac.Integration.Mvc;
-using David.SecondBook.OnlineStore.Domain.Abstract;
-using David.SecondBook.OnlineStore.Domain.Entities;
-using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace David.SecondBook.OnlineStore.WebApp
+﻿namespace David.SecondBook.OnlineStore.WebApp
 {
+    using Autofac;
+    using Autofac.Integration.Mvc;
+    using David.SecondBook.OnlineStore.Domain.Abstract;
+    using System;
+    using System.Web.Mvc;
+
     public class IocConfig
     {
         public static void Register()
