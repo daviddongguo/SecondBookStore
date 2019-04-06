@@ -1,7 +1,9 @@
 ﻿@using David.SecondBook.OnlineStore.Domain.Entities;
 
 @model IEnumerable<Product>
-
+@{
+    ViewBag.Title = "Products";
+}
 @foreach (var p in Model)
 {
     <div>
