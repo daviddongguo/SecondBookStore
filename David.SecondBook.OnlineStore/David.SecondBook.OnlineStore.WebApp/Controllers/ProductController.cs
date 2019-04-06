@@ -1,4 +1,5 @@
 ﻿using David.SecondBook.OnlineStore.Domain.Abstract;
+using David.SecondBook.OnlineStore.WebApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,15 +12,31 @@ namespace David.SecondBook.OnlineStore.WebApp.Controllers
     {
         private IProductsRepository rep;
 
+        private const int PageSize = 2;
+
         public ProductController(IProductsRepository rep)
         {
             this.rep = rep;
         }
 
         //
-        public ViewResult List()
+        public ViewResult List(int page = 1)
         {
-            return View(rep.ProductsList);
+            ProductsViewModel model = new ProductsViewModel
+            {
+                ProductsList = rep 
+            .ProductsList
+            .OrderBy(p => p.Id)
+            .Skip((page - 1) * PageSize)
+            .Take(PageSize),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = PageSize,
+                    TotalItems = rep.ProductsList.Count()
+                }
+            };
+            return View(model); ;
         }
 
         // GET: Product

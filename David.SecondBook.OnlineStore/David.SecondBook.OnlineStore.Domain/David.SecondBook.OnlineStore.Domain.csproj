@@ -48,11 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\EFDbProductsRepository.cs" />
     <Compile Include="Concrete\XMLProductsRepository.cs" />
     <Compile Include="Abstract\IProductsRepository.cs" />
     <Compile Include="Mock\MockProductsRepository.cs" />
     <Compile Include="Entities\Product.cs" />
-    <Compile Include="Concrete\EFDbProductsRepository.cs" />
+    <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
