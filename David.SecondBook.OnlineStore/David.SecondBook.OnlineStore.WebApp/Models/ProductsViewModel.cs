@@ -11,5 +11,7 @@ namespace David.SecondBook.OnlineStore.WebApp.Models
         public IEnumerable<Product> ProductsList { get; set; }
         public PagingInfo PagingInfo { get; set; }
 
+        public String CurrentCategory { get; set; }
+
     }
 }
