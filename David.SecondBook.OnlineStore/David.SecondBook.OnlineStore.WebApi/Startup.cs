@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-
+using David.SecondBook.OnlineStore.Domain.Abstract;
 
 namespace David.SecondBook.OnlineStore.WebApi
 {
@@ -35,6 +35,9 @@ namespace David.SecondBook.OnlineStore.WebApi
             {
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
             });
+
+            // Injection
+            services.AddSingleton<IProductsRepository, MockProductsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -9,24 +9,24 @@
 
     public class MockProductsRepository : IProductsRepository
     {
-        private List<Product> _productsList;
-        public IEnumerable<Product> ProductsList
-        {
-            get
-            {
-                this._productsList = new List<Product>
+        private List<Product> _productsList = new List<Product>
                 {
                     new Product { Name = "Mock Football", Price = 25 },
                     new Product { Name = "Mock Surf board", Price = 179 },
                     new Product { Name = "Mock Running shoes", Price = 95 }
                 };
+
+        public IEnumerable<Product> ProductsList
+        {
+            get
+            {
                 return this._productsList;
             }
         }
 
         public int Add(Product product)
         {
-            _productsList.Add(product);
+            this._productsList.Add(product);
             return product.Id;
         }
     }

@@ -13,7 +13,12 @@ namespace David.SecondBook.OnlineStore.WebApi.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        IProductsRepository _rep = new MockProductsRepository();
+        IProductsRepository _rep;
+
+        public ProductsController(IProductsRepository rep)
+        {
+            _rep = rep;
+        }
 
         [HttpGet]
         public IEnumerable<Product> Get()
@@ -23,7 +28,7 @@ namespace David.SecondBook.OnlineStore.WebApi.Controllers
 
 
         [HttpPost]
-        public void Post(Product product)
+        public void Post([FromBody]Product product)
         {
             _rep.Add(product);
         }
