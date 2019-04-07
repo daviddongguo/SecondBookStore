@@ -29,9 +29,9 @@ namespace David.SecondBook.OnlineStore.WebApp.Controllers
             ProductsViewModel model = new ProductsViewModel
             {
                 ProductsList = categoryProducts
-            .OrderBy(p => p.Id)
-            .Skip((page - 1) * PageSize)
-            .Take(PageSize),
+                        .OrderBy(p => p.Id)
+                        .Skip((page - 1) * PageSize)
+                        .Take(PageSize),
                 PagingInfo = new PagingInfo
                 {
                     CurrentPage = page,
