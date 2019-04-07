@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using David.SecondBook.OnlineStore.Domain.Abstract;
 using David.SecondBook.OnlineStore.Domain.Entities;
 using David.SecondBook.OnlineStore.WebApp.Controllers;
+using David.SecondBook.OnlineStore.WebApp.Models;
 using Moq;
 using NUnit.Framework;
 
@@ -34,16 +35,16 @@ namespace David.SecondBook.OnlineStore.NUnit.Tests
                 (
                     new Product[]
                     {
-                    new Product { Name = "Mock Football", Price = 25, Category="0" },
-                    new Product { Name = "Mock Surf board", Price = 179, Category="0" },
-                    new Product { Name = "Mock Running shoes", Price = 95, Category="0" }
-                     }
+                    new Product { Name = "Mock Football", Price = 25,},
+                    new Product { Name = "Mock Surf board", Price = 179,},
+                    new Product { Name = "Mock Running shoes", Price = 95,}
+                    }
                 );
             ProductController controller = new ProductController(mock.Object);      // Retrieve object
 
             // Act
             var result = (ViewResult)controller.List();
-            var resultMsg = ((IEnumerable<Product>)result.Model).ToArray()[0].Name;
+            var resultMsg = ((ProductsViewModel)result.Model).ProductsList.ToArray()[0].Name;
 
             // Assert
             Console.WriteLine(resultMsg);
