@@ -20,12 +20,15 @@ namespace David.SecondBook.OnlineStore.WebApp.Controllers
         }
 
         //
-        public ViewResult List(int page = 1)
+        public ViewResult List(string category, int page = 1)
         {
+            var categoryProducts = rep
+                .ProductsList
+                .Where(p => category == null || p.Category == category);
+
             ProductsViewModel model = new ProductsViewModel
             {
-                ProductsList = rep 
-            .ProductsList
+                ProductsList = categoryProducts
             .OrderBy(p => p.Id)
             .Skip((page - 1) * PageSize)
             .Take(PageSize),
@@ -33,10 +36,12 @@ namespace David.SecondBook.OnlineStore.WebApp.Controllers
                 {
                     CurrentPage = page,
                     ItemsPerPage = PageSize,
-                    TotalItems = rep.ProductsList.Count()
-                }
+                    TotalItems = categoryProducts.Count()
+                },
+                CurrentCategory = category
             };
-            return View(model); ;
+            model.PagingInfo.TotalItems = categoryProducts.Count();
+            return View(model);
         }
 
         // GET: Product
