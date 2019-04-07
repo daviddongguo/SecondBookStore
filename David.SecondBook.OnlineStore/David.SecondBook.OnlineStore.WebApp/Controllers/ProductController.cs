@@ -20,7 +20,7 @@ namespace David.SecondBook.OnlineStore.WebApp.Controllers
         }
 
         //
-        public ViewResult List(string category, int page = 1)
+        public ViewResult List(string category = null, int page = 1)
         {
             var categoryProducts = rep
                 .ProductsList

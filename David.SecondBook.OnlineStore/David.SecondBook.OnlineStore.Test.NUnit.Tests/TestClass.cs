@@ -34,9 +34,9 @@ namespace David.SecondBook.OnlineStore.NUnit.Tests
                 (
                     new Product[]
                     {
-                    new Product { Name = "Mock Football", Price = 25 },
-                    new Product { Name = "Mock Surf board", Price = 179 },
-                    new Product { Name = "Mock Running shoes", Price = 95 }
+                    new Product { Name = "Mock Football", Price = 25, Category="0" },
+                    new Product { Name = "Mock Surf board", Price = 179, Category="0" },
+                    new Product { Name = "Mock Running shoes", Price = 95, Category="0" }
                      }
                 );
             ProductController controller = new ProductController(mock.Object);      // Retrieve object

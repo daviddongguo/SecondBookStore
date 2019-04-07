@@ -16,9 +16,9 @@ namespace David.SecondBook.OnlineStore.Test.DebugConsole
             EFDbContext rep;
             using (rep = new EFDbContext())
             {
-                // rep.ProductsList.RemoveRange(rep.ProductsList);
+                rep.ProductsList.RemoveRange(rep.ProductsList);
 
-                for (int i = 0; i < 8; i++)
+                for (int i = 0; i < 36; i++)
                 {
                     var p = new Product()
                     {

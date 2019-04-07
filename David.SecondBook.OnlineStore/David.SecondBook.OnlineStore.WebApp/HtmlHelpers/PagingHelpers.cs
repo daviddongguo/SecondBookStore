@@ -10,6 +10,7 @@
 
     public static class PagingHelpers
     {
+        // <a class="btn btn-default btn-primary selected" href="Category0/Page2">2</a>
         public static MvcHtmlString PageLinks(
             this HtmlHelper html,
             PagingInfo pagingInfo,
@@ -18,8 +19,8 @@
             StringBuilder result = new StringBuilder();
             for (int i = 1; i <= pagingInfo.TotalPages; i++)  // page 1 2 3....
             {
-                TagBuilder tag = new TagBuilder("a");
-                tag.MergeAttribute("href", pageUrl(i));
+                TagBuilder tag = new TagBuilder("a");         //< a
+                tag.MergeAttribute("href", pageUrl(i));       
                 tag.InnerHtml = i.ToString();
                 if (i == pagingInfo.CurrentPage)
                 {
@@ -29,6 +30,7 @@
                 tag.AddCssClass("btn btn-default");
                 result.Append(tag.ToString());
             }
+
             return MvcHtmlString.Create(result.ToString());
         }
     }
