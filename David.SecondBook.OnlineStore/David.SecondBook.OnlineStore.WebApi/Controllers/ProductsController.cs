@@ -19,18 +19,51 @@ namespace David.SecondBook.OnlineStore.WebApi.Controllers
         {
             _rep = rep;
         }
+        [HttpGet("test")]
+        public IActionResult Test()
+        {
+            return Ok("Tested Successfully.");
+        }
+
 
         [HttpGet]
-        public IEnumerable<Product> Get()
+        public IActionResult Get()
         {
-            return _rep.ProductsList;
+            return Ok(_rep.ProductsList);
+        }
+
+        [HttpGet("id")]
+        public IActionResult GetById(int id)
+        {
+            return Ok(_rep.FindById(id));
         }
 
 
         [HttpPost]
-        public void Post([FromBody]Product product)
+        public IActionResult Post([FromBody]Product product)
         {
-            _rep.Add(product);
+            if (ModelState.IsValid)
+            {
+                _rep.Add(product);
+                return StatusCode(StatusCodes.Status201Created);
+            }
+            else
+            {
+                return BadRequest(ModelState);
+            }
         }
+
+        [HttpPut("id")]
+        public void Put(int id, [FromBody]Product product)
+        {
+            _rep.Update(id, product);
+        }
+
+        [HttpDelete("id")]
+        public void Delete(int id)
+        {
+            _rep.Delete(id);
+        }
+
     }
 }

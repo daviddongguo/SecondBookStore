@@ -29,5 +29,25 @@
             this._productsList.Add(product);
             return product.Id;
         }
+
+        public void Delete(int id)
+        {
+            Product product = FindById(id);
+            _productsList.Remove(product);
+        }
+
+        public Product FindById(int id)
+        {
+            return this._productsList.FirstOrDefault( s => s.Id == id);
+        }
+
+        public void Update(int id, Product product)
+        {
+            Product dbProduct = FindById(id);
+            dbProduct.Name = product.Name;
+            dbProduct.Price = product.Price;
+            dbProduct.Description = product.Description;
+            dbProduct.Category = product.Category;
+        }
     }
 }

@@ -25,5 +25,20 @@ namespace David.SecondBook.OnlineStore.Domain.Concrete
 
             return dbProduct.Id;
         }
+
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Product FindById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(int id, Product Product)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
