@@ -17,5 +17,13 @@ namespace David.SecondBook.OnlineStore.Domain.Concrete
         {
             get { return this.Context.ProductsList; }
         }
+
+        public int Add(Product product)
+        {
+            var dbProduct = this.Context.ProductsList.Add(product);
+            this.Context.SaveChanges();
+
+            return dbProduct.Id;
+        }
     }
 }

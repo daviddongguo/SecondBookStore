@@ -15,9 +15,17 @@ namespace David.SecondBook.OnlineStore.WebApi.Controllers
     {
         IProductsRepository _rep = new MockProductsRepository();
 
+        [HttpGet]
         public IEnumerable<Product> Get()
         {
             return _rep.ProductsList;
+        }
+
+
+        [HttpPost]
+        public void Post(Product product)
+        {
+            _rep.Add(product);
         }
     }
 }

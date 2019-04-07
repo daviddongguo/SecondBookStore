@@ -10,5 +10,10 @@
     public class XMLProductsRepository : IProductsRepository
     {
         public IEnumerable<Product> ProductsList => throw new NotImplementedException();
+
+        public int Add(Product product)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

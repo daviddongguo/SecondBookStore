@@ -10,5 +10,6 @@ namespace David.SecondBook.OnlineStore.Domain.Abstract
     public interface IProductsRepository
     {
         IEnumerable<Product> ProductsList { get; }
+        int Add(Product product);
     }
 }
