@@ -16,7 +16,7 @@ namespace David.SecondBook.OnlineStore.Test.DebugConsole
             EFDbContext rep;
             using (rep = new EFDbContext())
             {
-                rep.ProductsList.RemoveRange(rep.ProductsList);
+                // rep.ProductsList.RemoveRange(rep.ProductsList);
 
                 for (int i = 0; i < 8; i++)
                 {
@@ -25,6 +25,7 @@ namespace David.SecondBook.OnlineStore.Test.DebugConsole
                         Name = "Book " + i,
                         Price = 100m + i,
                         Description = "Book description " + i,
+                        Category = "" + (i % 3),
                     };
 
                     rep.ProductsList.Add(p);
