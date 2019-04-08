@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using David.SecondBook.OnlineStore.Domain.Abstract;
 using David.SecondBook.OnlineStore.Domain.Entities;
+using David.SecondBook.OnlineStore.WebApi.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,12 +13,14 @@ namespace David.SecondBook.OnlineStore.WebApi.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        IProductsRepository _rep;
+        //IProductsRepository _rep;
+        private ProductsDbContext _context;
 
-        public ProductsController(IProductsRepository rep)
+        public ProductsController(ProductsDbContext context)
         {
-            _rep = rep;
+            _context = context;
         }
+
         [HttpGet("test")]
         public IActionResult Test()
         {
@@ -26,16 +28,17 @@ namespace David.SecondBook.OnlineStore.WebApi.Controllers
         }
 
 
+        // GET api/sync
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_rep.ProductsList);
+            return new ObjectResult(_context.Prodocts.OrderByDescending(m => m.Id).Take(10).ToList());
         }
 
         [HttpGet("id")]
         public IActionResult GetById(int id)
         {
-            return Ok(_rep.FindById(id));
+            return Ok(_context.Prodocts);
         }
 
 
@@ -44,7 +47,8 @@ namespace David.SecondBook.OnlineStore.WebApi.Controllers
         {
             if (ModelState.IsValid)
             {
-                _rep.Add(product);
+                _context.Prodocts.Add(product);
+                _context.SaveChanges();
                 return StatusCode(StatusCodes.Status201Created);
             }
             else
@@ -56,13 +60,14 @@ namespace David.SecondBook.OnlineStore.WebApi.Controllers
         [HttpPut("id")]
         public void Put(int id, [FromBody]Product product)
         {
-            _rep.Update(id, product);
+            _context.Update(product);
         }
 
         [HttpDelete("id")]
         public void Delete(int id)
         {
-            _rep.Delete(id);
+            Product dbProduct = _context.Prodocts.FirstOrDefault( s => s.Id == id);
+            _context.Remove(dbProduct);
         }
 
     }

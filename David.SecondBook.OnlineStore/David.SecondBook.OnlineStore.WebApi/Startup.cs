@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using Microsoft.EntityFrameworkCore;
+
 using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,7 +13,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using David.SecondBook.OnlineStore.WebApi.Data;
 using David.SecondBook.OnlineStore.Domain.Abstract;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace David.SecondBook.OnlineStore.WebApi
 {
@@ -38,8 +42,25 @@ namespace David.SecondBook.OnlineStore.WebApi
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
             });
 
-            // Injection
-            services.AddSingleton<IProductsRepository, MockProductsRepository>();
+            // Injection;
+            // services.AddSingleton<IProductsRepository, EFDbProductsRepository>();
+            services.AddDbContextPool<ProductsDbContext>( 
+                        options => options.UseMySql(
+                                            "server=david-amazon-mysql-db.cu7uoaseyvgs.us-east-2.rds.amazonaws.com;" +
+                                            "database=secondbookstore;" +
+                                            "user=amazonmysql;" +
+                                            "password=0npRrW8QVTnF5lR;", 
+                        mySqlOptions =>
+                        {
+                            mySqlOptions.ServerVersion(new Version(5, 6, 40), ServerType.MySql)
+                                        .CharSetBehavior(CharSetBehavior.AppendToAllColumns)
+                                        .AnsiCharSet(CharSet.Latin1)
+                                        .UnicodeCharSet(CharSet.Utf8mb4)
+                                        .DisableBackslashEscaping(); ; // replace with your Server Version and Type
+                        }
+                                                    ));
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
