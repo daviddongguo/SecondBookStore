@@ -45,11 +45,7 @@ namespace David.SecondBook.OnlineStore.WebApi
             // Injection;
             // services.AddSingleton<IProductsRepository, EFDbProductsRepository>();
             services.AddDbContextPool<ProductsDbContext>( 
-                        options => options.UseMySql(
-                                            "server=david-amazon-mysql-db.cu7uoaseyvgs.us-east-2.rds.amazonaws.com;" +
-                                            "database=secondbookstore;" +
-                                            "user=amazonmysql;" +
-                                            "password=0npRrW8QVTnF5lR;", 
+                        options => options.UseMySql(Configuration.GetConnectionString("secondBookStoreConnection"), 
                         mySqlOptions =>
                         {
                             mySqlOptions.ServerVersion(new Version(5, 6, 40), ServerType.MySql)
