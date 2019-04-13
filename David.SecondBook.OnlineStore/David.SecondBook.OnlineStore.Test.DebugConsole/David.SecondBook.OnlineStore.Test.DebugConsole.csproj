@@ -61,10 +61,6 @@
       <Project>{cbeafb78-d0f6-4056-892b-7279cce5281a}</Project>
       <Name>David.SecondBook.OnlineStore.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\David.SecondBook.OnlineStore.Test.NUnit.Tests\David.SecondBook.OnlineStore.Test.NUnit.Tests.csproj">
-      <Project>{8edf4429-251a-416d-bb68-93f227191bcf}</Project>
-      <Name>David.SecondBook.OnlineStore.Test.NUnit.Tests</Name>
-    </ProjectReference>
     <ProjectReference Include="..\David.SecondBook.OnlineStore.WebApp\David.SecondBook.OnlineStore.WebApp.csproj">
       <Project>{74455c9c-521c-4ecc-b1b0-d91059f6eb26}</Project>
       <Name>David.SecondBook.OnlineStore.WebApp</Name>
