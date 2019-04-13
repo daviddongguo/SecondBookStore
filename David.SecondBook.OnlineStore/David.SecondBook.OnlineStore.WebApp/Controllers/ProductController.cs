@@ -1,9 +1,6 @@
 ﻿using David.SecondBook.OnlineStore.Domain.Abstract;
 using David.SecondBook.OnlineStore.WebApp.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace David.SecondBook.OnlineStore.WebApp.Controllers
@@ -12,7 +9,7 @@ namespace David.SecondBook.OnlineStore.WebApp.Controllers
     {
         private IProductsRepository rep;
 
-        private const int PageSize = 2;
+        public int PageSize = 3;
 
         public ProductController(IProductsRepository rep)
         {
@@ -40,7 +37,6 @@ namespace David.SecondBook.OnlineStore.WebApp.Controllers
                 },
                 CurrentCategory = category
             };
-            model.PagingInfo.TotalItems = categoryProducts.Count();
             return View(model);
         }
 
