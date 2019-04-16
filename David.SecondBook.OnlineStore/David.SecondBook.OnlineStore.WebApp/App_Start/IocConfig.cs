@@ -30,7 +30,12 @@
                 .As<IProductsRepository>()
                 .PropertiesAutowired();
 
+            builder.RegisterType<EmailSettings>().AsSelf().PropertiesAutowired();
 
+            builder
+                .RegisterType<EmailOrderProcessor>()
+                .As<IOrderProcessor>()
+                .PropertiesAutowired();
 
 
             // Set the dependency resolver to be Autofac.

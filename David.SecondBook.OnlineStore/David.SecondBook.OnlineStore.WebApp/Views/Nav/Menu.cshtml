@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<string>
 
-@Html.ActionLink("Home", "List", "Product", null, new { @class = "btn btn-block btn-default btn-lg" })
+@Html.ActionLink("Home", "List", "Product", null, new { @class = "btn btn-block btn-default btn-lg"
++ ((ViewBag.SelectedCategory == null) ? " btn-primary" : "")})
 
 @foreach (var category in Model)
 {
@@ -15,6 +16,6 @@
     },
     new
     {
-    @class = "btn btn-block btn-default btn-lg" + ((category == ViewBag.SelectedCategory || category == null) ? " btn-primary" : "")
+    @class = "btn btn-block btn-default btn-lg" + ((category == ViewBag.SelectedCategory) ? " btn-primary" : "")
     })
 }
