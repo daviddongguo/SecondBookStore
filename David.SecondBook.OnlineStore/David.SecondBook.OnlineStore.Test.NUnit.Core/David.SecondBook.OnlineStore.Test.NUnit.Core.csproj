@@ -22,7 +22,6 @@
   <ItemGroup>
     <ProjectReference Include="..\David.SecondBook.OnlineStore.Domain\David.SecondBook.OnlineStore.Domain.csproj" />
     <ProjectReference Include="..\David.SecondBook.OnlineStore.WebApi\David.SecondBook.OnlineStore.WebApi.csproj" />
-    <ProjectReference Include="..\David.SecondBook.OnlineStore.WebApp.core\David.SecondBook.OnlineStore.WebApp.Core.csproj" />
     <ProjectReference Include="..\David.SecondBook.OnlineStore.WebApp\David.SecondBook.OnlineStore.WebApp.csproj" />
   </ItemGroup>
 
