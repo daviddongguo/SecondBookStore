@@ -67,6 +67,7 @@ namespace David.SecondBook.OnlineStore.WebApp.Controllers
 
         }
 
+        [HttpGet]
         public ViewResult Create()
         {
             return View("Edit", new Product());
