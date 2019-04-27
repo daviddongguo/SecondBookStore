@@ -41,7 +41,7 @@
 
 
             builder
-                .RegisterType<FormsAuthProvider>()
+                .RegisterType<DbAuthProvider>()
                 .As<IAuthProvider>()
                 .PropertiesAutowired();
             // Set the dependency resolver to be Autofac.

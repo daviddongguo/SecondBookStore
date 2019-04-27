@@ -163,6 +163,7 @@
     <Compile Include="Abstract\IAuthProvider.cs" />
     <Compile Include="App_Start\IocConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Concrete\DbAuthProvider.cs" />
     <Compile Include="Concrete\FormsAuthProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
