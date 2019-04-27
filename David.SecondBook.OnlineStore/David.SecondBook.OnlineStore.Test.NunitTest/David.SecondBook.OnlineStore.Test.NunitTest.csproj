@@ -55,6 +55,7 @@
     <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CartControllerTests.cs" />
     <Compile Include="Controllers\ProductControllerTests.cs" />
     <Compile Include="HtmlHelpers\PagingHelpersTests.cs" />
     <Compile Include="TestExample.cs" />

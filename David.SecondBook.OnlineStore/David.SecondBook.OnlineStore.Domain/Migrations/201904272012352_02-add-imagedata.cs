@@ -1,0 +1,20 @@
+namespace David.SecondBook.OnlineStore.Domain.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class _02addimagedata : DbMigration
+    {
+        public override void Up()
+        {
+            AddColumn("secondbookstore.Products", "ImageData", c => c.Binary());
+            AddColumn("secondbookstore.Products", "ImageMimeType", c => c.String());
+        }
+        
+        public override void Down()
+        {
+            DropColumn("secondbookstore.Products", "ImageMimeType");
+            DropColumn("secondbookstore.Products", "ImageData");
+        }
+    }
+}

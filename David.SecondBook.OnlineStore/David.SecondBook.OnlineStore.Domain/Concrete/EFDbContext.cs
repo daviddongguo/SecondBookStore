@@ -15,6 +15,7 @@
         }
 
         public DbSet<Product> ProductsList { get; set; }
+        public DbSet<LoginUser> LoginUsers { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
