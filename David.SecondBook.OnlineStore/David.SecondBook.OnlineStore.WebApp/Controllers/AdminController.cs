@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace David.SecondBook.OnlineStore.WebApp.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private IProductsRepository repository;
