@@ -17,11 +17,12 @@
 </head>
 <body>
     <div class="navbar navbar-inverse" role="navigation">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
             <span class="hidden-xs">SPORTS STORE</span>
             <div class="visible-xs">SPORTS</div>
             <div class="visible-xs">STORE</div>
         </a>
+        @Html.ActionLink("Admin", "Index", "Admin", null, new { @class = "navbar-brand" })
         @Html.Action("Summary", "Cart")
     </div>
     <div class="visible-xs">

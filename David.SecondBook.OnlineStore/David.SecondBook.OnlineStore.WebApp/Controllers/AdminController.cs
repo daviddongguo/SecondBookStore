@@ -56,7 +56,7 @@ namespace David.SecondBook.OnlineStore.WebApp.Controllers
             var dbProduct = this.repository.DeleteProduct(id);
             if (dbProduct != null)
             {                
-                TempData["message"] = string.Format("{0} has been Deleted", dbProduct.Name);
+                TempData["message"] = string.Format("-- {0} -- has been Deleted", dbProduct.Name);
                 return RedirectToAction("Index");
             }
             else
