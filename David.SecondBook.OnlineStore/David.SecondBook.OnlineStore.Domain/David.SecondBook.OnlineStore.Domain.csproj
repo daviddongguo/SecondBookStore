@@ -67,6 +67,10 @@
     <Compile Include="Migrations\201904271934368_01.Designer.cs">
       <DependentUpon>201904271934368_01.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904272012352_02-add-imagedata.cs" />
+    <Compile Include="Migrations\201904272012352_02-add-imagedata.Designer.cs">
+      <DependentUpon>201904272012352_02-add-imagedata.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Mock\MockProductsRepository.cs" />
     <Compile Include="Entities\Product.cs" />
@@ -80,6 +84,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201904271934368_01.resx">
       <DependentUpon>201904271934368_01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904272012352_02-add-imagedata.resx">
+      <DependentUpon>201904272012352_02-add-imagedata.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
