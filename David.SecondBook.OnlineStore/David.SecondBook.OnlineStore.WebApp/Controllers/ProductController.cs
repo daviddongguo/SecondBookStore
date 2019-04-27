@@ -1,4 +1,5 @@
 ﻿using David.SecondBook.OnlineStore.Domain.Abstract;
+using David.SecondBook.OnlineStore.Domain.Entities;
 using David.SecondBook.OnlineStore.WebApp.Models;
 using System.Linq;
 using System.Web.Mvc;
@@ -45,5 +46,21 @@ namespace David.SecondBook.OnlineStore.WebApp.Controllers
         {
             return View();
         }
+
+        public FileContentResult GetImage(int id)
+        {
+            Product prod = rep
+            .ProductsList
+            .FirstOrDefault(p => p.Id == id);
+            if (prod != null)
+            {
+                return File(prod.ImageData, prod.ImageMimeType);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
     }
 }

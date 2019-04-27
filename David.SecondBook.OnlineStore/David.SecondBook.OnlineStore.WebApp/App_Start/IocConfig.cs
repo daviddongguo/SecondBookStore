@@ -5,6 +5,8 @@
     using David.SecondBook.OnlineStore.Domain.Abstract;
     using David.SecondBook.OnlineStore.Domain.Concrete;
     using David.SecondBook.OnlineStore.Domain.Entities;
+    using David.SecondBook.OnlineStore.WebApp.Abstract;
+    using David.SecondBook.OnlineStore.WebApp.Concrete;
     using System;
     using System.Web.Mvc;
 
@@ -38,6 +40,10 @@
                 .PropertiesAutowired();
 
 
+            builder
+                .RegisterType<DbAuthProvider>()
+                .As<IAuthProvider>()
+                .PropertiesAutowired();
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
