@@ -21,6 +21,17 @@ namespace David.SecondBook.OnlineStore.WebApp.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult LogOut()
+        {
+            if (authProvider.SignOut())
+            {
+            return RedirectToAction("List", "Product");
+            }
+            return RedirectToAction("Index", "Admin");
+        }
+
         [HttpPost]
         public ActionResult Login(LoginViewModel model, string returnUrl)
         {

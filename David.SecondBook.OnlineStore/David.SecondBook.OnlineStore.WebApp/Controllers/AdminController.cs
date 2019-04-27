@@ -77,6 +77,5 @@ namespace David.SecondBook.OnlineStore.WebApp.Controllers
         {
             return View("Edit", new Product());
         }
-
     }
 }

@@ -9,5 +9,6 @@ namespace David.SecondBook.OnlineStore.WebApp.Abstract
     public interface IAuthProvider
     {
         bool Authenticate(string username, string password);
+        bool SignOut();
     }
 }

@@ -18,5 +18,10 @@ namespace David.SecondBook.OnlineStore.WebApp.Concrete
             }
             return result;
         }
+
+        public bool SignOut()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

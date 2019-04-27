@@ -30,5 +30,18 @@ namespace David.SecondBook.OnlineStore.WebApp.Concrete
 
             return false;
         }
+
+        public bool SignOut()
+        {
+            try
+            {
+            FormsAuthentication.SignOut();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }
