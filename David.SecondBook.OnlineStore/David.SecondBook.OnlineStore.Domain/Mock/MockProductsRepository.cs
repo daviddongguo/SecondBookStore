@@ -30,7 +30,7 @@
             return product.Id;
         }
 
-        public void Delete(int id)
+        public void DeleteProduct(int id)
         {
             Product product = FindById(id);
             _productsList.Remove(product);
@@ -41,6 +41,11 @@
             return this._productsList.FirstOrDefault( s => s.Id == id);
         }
 
+        public void SaveProduct(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(int id, Product product)
         {
             Product dbProduct = FindById(id);
@@ -48,6 +53,11 @@
             dbProduct.Price = product.Price;
             dbProduct.Description = product.Description;
             dbProduct.Category = product.Category;
+        }
+
+        Product IProductsRepository.DeleteProduct(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

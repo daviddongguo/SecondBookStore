@@ -12,7 +12,9 @@ namespace David.SecondBook.OnlineStore.Domain.Abstract
         IEnumerable<Product> ProductsList { get; }
         Product FindById(int id);
         int Add(Product product);
+
+        void SaveProduct(Product product);
         void Update(int id, Product Product);
-        void Delete(int id);
+        Product DeleteProduct(int id);
     }
 }
